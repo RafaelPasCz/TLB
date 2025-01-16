@@ -1,19 +1,33 @@
-def gerar_reference_string(pagesize=4096, trace_file='main.trace'):
-    reference_string = []
-    with open(trace_file, 'r') as arquivo:
-        for linha in arquivo:
-            if linha.startswith(' '):
-                linha = linha[1:]
-            if linha.startswith(('I', 'S', 'L', 'M')):  # Filtra linhas relevantes
-                parts = linha.split()
-                endereco = parts[1].split(',')[0]  # Extrai o endereço antes da vírgula
-                end_decimal = int(endereco, 16)  # Converte de hexadecimal para decimal
-                num_pagina = end_decimal // pagesize  # Calcula o número da página
-                # Verifique se a conversão está correta
-                reference_string.append(f"{num_pagina:05x}")  # Formata como hexadecimal
-    return reference_string
+import os
 
-# Gera a reference string e salva em um arquivo
-reference_string = gerar_reference_string()
-with open('reference_string.txt', 'w') as arquivo:
-    arquivo.write('\n'.join(reference_string))
+def abrir(arq):
+    with open(arq, 'r') as arquivo:
+        for linha in arquivo:
+            if not linha.startswith("=="):
+                linha2 = removefim(linha)
+                linha1 = separacomeco(linha)
+                escrevearquivo(linha1, linha2)
+
+
+def escrevearquivo(linha1, linha2):
+    novoarquivo = "reference_string.txt"
+    linha1 = linha1.strip()
+    linha2 = linha2.strip()
+    linha2 = int(linha2, 16)
+
+    with open(novoarquivo, "a") as arquivo:
+        arquivo.write(f"{linha1}{linha2}\n")
+
+def separacomeco(linha):
+    novalinha = linha[:3]
+    return novalinha
+
+
+def removefim(linha):
+    novalinha = linha[3:-6]
+    return novalinha
+
+arquivos = os.listdir("./")
+for file in arquivos:
+    if file.endswith('.trace'):
+        abrir(file)
