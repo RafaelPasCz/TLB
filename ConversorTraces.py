@@ -31,3 +31,4 @@ arquivos = os.listdir("./")
 for file in arquivos:
     if file.endswith('.trace'):
         abrir(file)
+        file.close()
