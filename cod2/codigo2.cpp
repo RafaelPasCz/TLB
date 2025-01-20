@@ -4,7 +4,7 @@
 #include <ctime>   
 
 using namespace std;
-const int TAMANHO = 10000000;
+const int TAMANHO = 10000;
 int main() {
     srand(time(0)); // inicializa o gerador de numeros aleatórios
 

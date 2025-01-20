@@ -1,0 +1,24 @@
+8
+instr hit rate: 1.486170
+pag hit rate: 2.473715
+16
+instr hit rate: 1.736487
+pag hit rate: 6.050207
+32
+instr hit rate: 2.480359
+pag hit rate: 7.236120
+64
+instr hit rate: 5.529797
+pag hit rate: 32.374538
+128
+instr hit rate: 80.498131
+pag hit rate: 36.300053
+256
+instr hit rate: 99.990913
+pag hit rate: 45.569923
+512
+instr hit rate: 99.990913
+pag hit rate: 96.797241
+1024
+instr hit rate: 99.990913
+pag hit rate: 99.943962

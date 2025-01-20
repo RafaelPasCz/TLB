@@ -2,7 +2,7 @@
 #include <cstdlib> 
 #include <ctime>   
 using namespace std;
-const int TAMANHO = 835; // tamanho das matrizes
+const int TAMANHO = 20; // tamanho das matrizes
 
 void multiplicarMatrizes(int matriz1[][TAMANHO], int matriz2[][TAMANHO], int resultado[][TAMANHO]) {
     // inicializa a matriz resultado

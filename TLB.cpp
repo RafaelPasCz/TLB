@@ -4,7 +4,7 @@ using namespace std;
 #include <string>
 #include <queue>
 
-void AbrirArquivo(const string &nomeArquivo) {
+void AbrirArquivo(const string &nomeArquivo,int numero) {
     int numPosDado;
     int numPosInstr;
     int instrHits = 0;
@@ -12,11 +12,12 @@ void AbrirArquivo(const string &nomeArquivo) {
     int dadoHits = 0;
     int dadoMisses = 0;
 
-    cout << "Digite o numero de entradas na TLB de instruções";
+  /*  cout << "Digite o numero de entradas na TLB de instruções";
     cin >> numPosInstr;
     cout << "Digite o numero de entradas na TLB de paginas: ";
-    cin >> numPosDado;
-
+    cin >> numPosDado;*/
+    numPosInstr = numero;
+    numPosDado = numero;
     // TLB usando um vetor para armazenar os valores
     string TLBDadoEntries[numPosDado];
     string TLBInstrEntries[numPosInstr];
@@ -126,9 +127,15 @@ void AbrirArquivo(const string &nomeArquivo) {
     cout << "pagHits: " << dadoHits << endl;
     cout << "pagMisses: " << dadoMisses << endl;
     cout << "pag Hit Rate: " << dadoHitRate * 100 << "%" << endl;  // Exibe a taxa de acertos em porcentagem
+    FILE* f;
+    f = fopen("resultado.txt","a");
+    fprintf(f,"%i\ninstr hit rate: %f\npag hit rate: %f\n",numPosDado, instrHitRate*100, dadoHitRate*100);
+    
+
 }
 
-int main() {
-    AbrirArquivo("reference_string.txt"); // Exemplo de chamada da função
+int main(int argc, char* argv[]) {
+    int numero = atoi(argv[1]);
+    AbrirArquivo("reference_string.txt",numero); // Exemplo de chamada da função
     return 0;
 }
