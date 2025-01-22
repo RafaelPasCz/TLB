@@ -11,7 +11,7 @@ int main() {
 
     vector<int> vetor1(TAMANHO), vetor2(TAMANHO), vetor3;
 
-    // preenche os vetores 1 e 2 
+    // preenche os vetores 1 e 2 com valores aleatorios positivos entre 1 e 100
     for (int i = 0; i < TAMANHO; i++) {
         vetor1[i] = rand() % 100 + 1;
         vetor2[i] = rand() % 100 + 1;
