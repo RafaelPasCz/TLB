@@ -3,7 +3,7 @@
 #include <ctime>   
 using namespace std;
 const int TAMANHO = 20; // tamanho das matrizes
-
+// multiplicação de matriz normal, não tem muito o que comentar
 void multiplicarMatrizes(int matriz1[][TAMANHO], int matriz2[][TAMANHO], int resultado[][TAMANHO]) {
     // inicializa a matriz resultado
     for (int i = 0; i < TAMANHO; i++) {
